@@ -3,6 +3,8 @@ Programa em Python para envio de mensagem e imagem no WhatsApp
 
 **Utilizado:** Python 3.9 + Selenium
 
+Link para download do chromedriver: https://chromedriver.chromium.org/downloads
+
 Funcionalidades:
 
 - [x] Enviar mensagem
