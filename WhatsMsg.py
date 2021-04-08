@@ -24,6 +24,7 @@ class WhatsMsg:
             print("Funções disponiveis:\n"
                   "* Enviar Mensagem\n"
                   "* Enviar Imagem\n"
+                  "* Mensagens não lidas\n"
                   "* Enviar Mensagem Flood\n"
                   "* Enviar Imagem Flood\n"
                   "* Ver contatos (teste)\n"
@@ -89,24 +90,24 @@ class WhatsMsg:
             print("Erro ao puxar os contatos", e)
 
     def enviar_msg_flood(self, contato, mensagem, qtd):
-        self.qtd = int(qtd)
+        self.qtd = qtd
         try:
             self.__buscar_contatos(contato)
-            x = 0
-            while x < qtd:
+            n = 0
+            while n < qtd:
                 self.__mensagem(mensagem)
                 time.sleep(2)
-                x += 1
+                n += 1
             print("Mensagens enviadas...")
         except Exception as e:
             print("Erro ao enviar flood", e)
 
     def enviar_img_flood(self, contato, nome_arquivo, qtd):
         self.qtd = qtd
-        x = 0
+        n = 0
         try:
             self.__buscar_contatos(contato)
-            while x < qtd:
+            while n < qtd:
                 # Clica no botão adicionar
                 self.chrome.find_element_by_css_selector("span[data-icon='clip']").click()
                 # Seleciona input
@@ -120,10 +121,37 @@ class WhatsMsg:
                 send = self.chrome.find_element_by_xpath('//*[@id="app"]/div[1]/div[1]/div[2]/div[2]/span/div[1]/span/div[1]/div/div[2]/span/div/div/span')
                 # Clica no botão enviar
                 send.click()
-                x += 1
+                n += 1
                 time.sleep(5)
         except Exception as e:
             print("Erro ao enviar midia", e)
+
+    def msgs_nao_lidas(self):
+        naolidas = self.chrome.find_elements_by_class_name("_1V5O7")
+        try:
+            for naolida in naolidas:
+                lista = list(naolida.text)
+                lista.insert(0, "Nome: ")
+                if lista.__contains__("\n"):
+                    index = lista.index("\n")
+                    lista.pop(index)
+                    lista.insert(index,"\nHora: ")
+                if lista.__contains__("\n"):
+                    index = lista.index("\n")
+                    lista.pop(index)
+                    lista.insert(index,"\nÚltima Mensagem: ")
+                if lista.__contains__("\n"):
+                    index = lista.index("\n")
+                    lista.pop(index)
+                    lista.insert(index,"\nQtd Mensagem: ")
+                    tamanho_lista = len(lista)
+                    lista.insert(tamanho_lista + 1, "\n-------------------")
+                retorno = ''.join(lista)
+                print(retorno)
+                print("\nFim das novas conversas...")
+            print("Não há novas mensagens!")
+        except Exception as e:
+            print("Erro ", e)
 
     def sair(self):
         try:
