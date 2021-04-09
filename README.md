@@ -12,4 +12,5 @@ Link para download do chromedriver: https://chromedriver.chromium.org/downloads
 
 ### Novas funções:
 06/04/2021 - Enviar mensagens e imagens
+
 08/04/2021 - Ver última mensagem não lida -> Nome, Hora, Mensagem e quantidade de mensagens não lidas daquele contato.
