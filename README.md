@@ -11,11 +11,9 @@
 
 <h6>Utilizado: Python 3.9 + Selenium</h6>
 
-<h6>Link para download do chromedriver: https://chromedriver.chromium.org/downloads</h6>
-
 <b><h5>:gear: Necessário criar as pastas no diretório:</h5></b>
 - <h6><b>cache:</b> - Armazenar as informacões do navegador, sendo assim não será necessário escanear o QrCode toda vez que executar.</h6>
-- <h6><b>driver:</b> - Armazenar chromedriver.</h6>
+- <h6><b>driver:</b> - Armazenar chromedriver. - Link para download do chromedriver: https://chromedriver.chromium.org/downloads</h6>
 - <h6><b>midia:</b> - Armazenar arquivos para envio (jpg, png, pdf...).</h6>
 <hr>
 <b><h5>:receipt: Recursos:</h5></b>
