@@ -1,1 +1,1 @@
-<p align="center">Pasta para guardar arquivos do navegador.</p>
+<p align="center">:floppy_disk: Pasta para guardar arquivos do navegador.</p>
