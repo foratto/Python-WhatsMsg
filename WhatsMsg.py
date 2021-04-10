@@ -5,7 +5,7 @@ import time
 
 
 class WhatsMsg:
-    # Define os diretórios do driver, cache do navegador e pasta imagem.
+    # Define os diretórios do driver, cache do navegador e pasta de midia.
     dir_path = os.getcwd()
     chromedriver = dir_path + "/driver/chromedriver"
     dir_cache = dir_path + "/cache"
@@ -19,7 +19,7 @@ class WhatsMsg:
             self.chrome = webdriver.Chrome(self.chromedriver, options=self.cache)
             print("Abrindo Whatsapp no Navegador Chrome")
             self.chrome.get("https://web.whatsapp.com")
-            print("Aguardando escanear QrCode / Carregamento da página...\n")
+            print("Aguardando 15 segundos. Escanear QrCode / Carregamento da página...\n")
             time.sleep(15)
             print("Funções disponiveis:\n"
                   "* Enviar Mensagem\n"
@@ -48,7 +48,7 @@ class WhatsMsg:
             self.chrome.find_element_by_xpath('//*[@id="main"]/footer/div[1]/div[2]/div/div[2]').click()
             self.chrome.find_element_by_xpath('//*[@id="main"]/footer/div[1]/div[2]/div/div[2]').send_keys(mensagem)
             self.chrome.find_element_by_xpath('//*[@id="main"]/footer/div[1]/div[2]/div/div[2]').send_keys(Keys.ENTER)
-            print("Mensagens enviadas...")
+            print("Mensagem enviada...")
         except Exception as e:
             print("Erro ao enviar mensagem", e)
 
@@ -72,6 +72,16 @@ class WhatsMsg:
             self.__mensagem(mensagem)
         except Exception as e:
             print("Erro ao enviar mensagem", e)
+
+    def msg_numero_fone(self, fone_numero, mensagem):
+        try:
+            self.chrome.get(f"https://web.whatsapp.com/send?phone=+{fone_numero}")
+            print("Aguardando 15 segundos para carregamento da página...")
+            time.sleep(15)
+            self.__mensagem(mensagem)
+            print(f"Mensagem: {mensagem} enviada para {fone_numero}")
+        except Exception as e:
+            print("Erro ", e)
 
     def enviar_midia(self, contato, nome_arquivo):
         try:
@@ -137,7 +147,6 @@ class WhatsMsg:
                     lista.insert(tamanho_lista + 1, "\n-------------------")
                 retorno = ''.join(lista)
                 print(retorno)
-                print("\nFim das novas conversas...")
             print("Não há novas mensagens!")
         except Exception as e:
             print("Erro ", e)
