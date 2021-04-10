@@ -4,10 +4,11 @@
 
 <h4 align="center">🚧 Em construção... 🚧</h4>
 
-<a href="https://github.com/foratto/Python-WhatsMsg/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/foratto/Python-WhatsMsg?style=for-the-badge"></a>
-<a href="https://github.com/foratto/Python-WhatsMsg/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/foratto/Python-WhatsMsg?style=for-the-badge"></a>
-<a href="https://github.com/foratto/Python-WhatsMsg/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/foratto/Python-WhatsMsg?style=for-the-badge"></a>
-<a href="https://github.com/foratto/Python-WhatsMsg/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/foratto/Python-WhatsMsg?style=for-the-badge"></a>
+<a href="https://github.com/foratto/Python-WhatsMsg/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/foratto/Python-WhatsMsg"></a>
+<a href="https://python.org"><img alt="Made with Python" src="https://img.shields.io/badge/Made%20with-Python-green"></a>
+<a href="https://github.com/foratto/Python-WhatsMsg/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/foratto/Python-WhatsMsg"></a>
+<a href="https://github.com/foratto/Python-WhatsMsg/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/foratto/Python-WhatsMsg"></a>
+<a href="https://github.com/foratto/Python-WhatsMsg/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/foratto/Python-WhatsMsg"></a>
 
 <h6>Utilizado: Python 3.9 + Selenium</h6>
 
