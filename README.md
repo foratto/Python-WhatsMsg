@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/foratto/Python-WhatsMsg/blob/main/logo.png"></p>
+<p align="center"><img src="https://github.com/foratto/Python-WhatsMsg/blob/main/midia/WhatsMsg.png"></p>
 
 <p align="center">Programa em Python para envio de mensagens e mídia no WhatsApp.</p>
 
