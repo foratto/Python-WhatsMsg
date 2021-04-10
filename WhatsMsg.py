@@ -7,9 +7,9 @@ import time
 class WhatsMsg:
     # Define os diretórios do driver, cache do navegador e pasta imagem.
     dir_path = os.getcwd()
-    chromedriver = dir_path + "/chromedriver"
+    chromedriver = dir_path + "/driver/chromedriver"
     dir_cache = dir_path + "/cache"
-    dir_img = dir_path + "/images/"
+    dir_img = dir_path + "/midia/"
 
     def __init__(self):
         try:
@@ -52,6 +52,20 @@ class WhatsMsg:
         except Exception as e:
             print("Erro ao enviar mensagem", e)
 
+    def __enviar_midia(self, nome_arquivo):
+        try:
+            self.chrome.find_element_by_css_selector("span[data-icon='clip']").click()
+            # Seleciona input
+            adicionar = self.chrome.find_element_by_css_selector("input[type='file']")
+            # Adiciona arquivo
+            print(f"Inserindo imagem: {nome_arquivo}")
+            adicionar.send_keys(self.dir_img + nome_arquivo)
+            time.sleep(3)
+            print("Enviando imagem...")
+            self.chrome.find_element_by_xpath('//*[@id="app"]/div[1]/div[1]/div[2]/div[2]/span/div[1]/span/div[1]/div/div[2]/span/div/div/span').click()
+        except Exception as e:
+            print("Erro ao enviar midia", e)
+
     def enviar_mensagem(self, contato, mensagem):
         try:
             self.__buscar_contatos(contato)
@@ -59,23 +73,10 @@ class WhatsMsg:
         except Exception as e:
             print("Erro ao enviar mensagem", e)
 
-    def enviar_imagem(self, contato, nome_arquivo):
+    def enviar_midia(self, contato, nome_arquivo):
         try:
             self.__buscar_contatos(contato)
-
-            # Clica no botão adicionar
-            self.chrome.find_element_by_css_selector("span[data-icon='clip']").click()
-            # Seleciona input
-            attach = self.chrome.find_element_by_css_selector("input[type='file']")
-            # Adiciona arquivo
-            print(f"Inserindo imagem: {nome_arquivo}")
-            attach.send_keys(self.dir_img + nome_arquivo)
-            time.sleep(3)
-            # Seleciona botão enviar
-            print("Enviando imagem...")
-            send = self.chrome.find_element_by_xpath('//*[@id="app"]/div[1]/div[1]/div[2]/div[2]/span/div[1]/span/div[1]/div/div[2]/span/div/div/span')
-            # Clica no botão enviar
-            send.click()
+            self.__enviar_midia(nome_arquivo)
         except Exception as e:
             print("Erro ao enviar midia", e)
 
@@ -102,25 +103,13 @@ class WhatsMsg:
         except Exception as e:
             print("Erro ao enviar flood", e)
 
-    def enviar_img_flood(self, contato, nome_arquivo, qtd):
+    def enviar_midia_flood(self, contato, nome_arquivo, qtd):
         self.qtd = qtd
         n = 0
         try:
             self.__buscar_contatos(contato)
             while n < qtd:
-                # Clica no botão adicionar
-                self.chrome.find_element_by_css_selector("span[data-icon='clip']").click()
-                # Seleciona input
-                attach = self.chrome.find_element_by_css_selector("input[type='file']")
-                # Adiciona arquivo
-                print(f"Inserindo imagem: {nome_arquivo}")
-                attach.send_keys(self.dir_img + nome_arquivo)
-                time.sleep(3)
-                # Seleciona botão enviar
-                print("Enviando imagem...")
-                send = self.chrome.find_element_by_xpath('//*[@id="app"]/div[1]/div[1]/div[2]/div[2]/span/div[1]/span/div[1]/div/div[2]/span/div/div/span')
-                # Clica no botão enviar
-                send.click()
+                self.__enviar_midia(nome_arquivo)
                 n += 1
                 time.sleep(5)
         except Exception as e:
