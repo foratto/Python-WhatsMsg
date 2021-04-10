@@ -14,11 +14,11 @@
 <h6>Link para download do chromedriver: https://chromedriver.chromium.org/downloads</h6>
 
 <b><h5>:gear: Necessário criar as pastas no diretório:</h5></b>
-<h6><b>cache:</b> - Armazenar as informacões do navegador, sendo assim não será necessário escanear o QrCode toda vez que executar.</h6>
-<h6><b>driver:</b> - Armazenar chromedriver.</h6>
-<h6><b>midia:</b> - Armazenar arquivos para envio (jpg, png, pdf...).</h6>
+- <h6><b>cache:</b> - Armazenar as informacões do navegador, sendo assim não será necessário escanear o QrCode toda vez que executar.</h6>
+- <h6><b>driver:</b> - Armazenar chromedriver.</h6>
+- <h6><b>midia:</b> - Armazenar arquivos para envio (jpg, png, pdf...).</h6>
 <hr>
-<h5>:receipt: Recursos:</h5>
+<b><h5>:receipt: Recursos:</h5></b>
 <h6>10/04/2021 - Enviar mensagens/midias diretas para telefones sem estar nos contatos</h6>
 <h6>08/04/2021 - Ver última mensagem não lida (Nome, Hora, Mensagem e quantidade de mensagens não lidas daquele contato.)</h6>
 <h6>06/04/2021 - Enviar mensagens e imagens</h6>
