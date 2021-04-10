@@ -22,11 +22,10 @@ class WhatsMsg:
             print("Aguardando 15 segundos. Escanear QrCode / Carregamento da página...\n")
             time.sleep(15)
             print("Funções disponiveis:\n"
-                  "* Enviar Mensagem\n"
-                  "* Enviar Imagem\n"
+                  "* Enviar Mensagem/Midia\n"
+                  "* Enviar Mensagem/Midia numero telefone\n"
                   "* Mensagens não lidas\n"
-                  "* Enviar Mensagem Flood\n"
-                  "* Enviar Imagem Flood\n"
+                  "* Enviar Mensagem/Midia Flood\n"
                   "* Ver contatos (teste)\n"
                   "** Para sair obj.sair()\n")
         except Exception as e:
