@@ -19,7 +19,7 @@
 <h6><b>midia:</b> - Armazenar arquivos para envio (jpg, png, pdf...).</h6>
 <hr>
 <h5>:receipt: Recursos:</h5>
-
+<h6>10/04/2021 - Enviar mensagens/midias diretas para telefones sem estar nos contatos</h6>
 <h6>08/04/2021 - Ver última mensagem não lida (Nome, Hora, Mensagem e quantidade de mensagens não lidas daquele contato.)</h6>
 <h6>06/04/2021 - Enviar mensagens e imagens</h6>
 <hr>  
