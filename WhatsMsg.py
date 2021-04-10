@@ -73,7 +73,7 @@ class WhatsMsg:
         except Exception as e:
             print("Erro ao enviar mensagem", e)
 
-    def msg_numero_fone(self, fone_numero, mensagem):
+    def enviar_msg_numerofone(self, fone_numero, mensagem):
         try:
             self.chrome.get(f"https://web.whatsapp.com/send?phone=+{fone_numero}")
             print("Aguardando 15 segundos para carregamento da página...")
@@ -83,22 +83,22 @@ class WhatsMsg:
         except Exception as e:
             print("Erro ", e)
 
+    def enviar_midia_numerofone(self, fone_numero, nome_arquivo):
+        try:
+            self.chrome.get(f"https://web.whatsapp.com/send?phone=+{fone_numero}")
+            print("Aguardando 15 segundos para carregamento da página...")
+            time.sleep(15)
+            self.__enviar_midia(nome_arquivo)
+            print(f"Mídia: {nome_arquivo} enviada para {fone_numero}")
+        except Exception as e:
+            print("Erro ", e)
+
     def enviar_midia(self, contato, nome_arquivo):
         try:
             self.__buscar_contatos(contato)
             self.__enviar_midia(nome_arquivo)
         except Exception as e:
             print("Erro ao enviar midia", e)
-
-    def ver_contatos(self):
-        try:
-            self.chrome.find_element_by_xpath('//*[@id="side"]/header/div[2]/div/span/div[2]/div/span').click()
-
-            contatos = self.chrome.find_elements_by_class_name('N2dUK')
-            for contato in contatos:
-                print(contato.text)
-        except Exception as e:
-            print("Erro ao puxar os contatos", e)
 
     def enviar_msg_flood(self, contato, mensagem, qtd):
         self.qtd = qtd
@@ -124,6 +124,16 @@ class WhatsMsg:
                 time.sleep(5)
         except Exception as e:
             print("Erro ao enviar midia", e)
+
+    def ver_contatos(self):
+        try:
+            self.chrome.find_element_by_xpath('//*[@id="side"]/header/div[2]/div/span/div[2]/div/span').click()
+
+            contatos = self.chrome.find_elements_by_class_name('N2dUK')
+            for contato in contatos:
+                print(contato.text)
+        except Exception as e:
+            print("Erro ao puxar os contatos", e)
 
     def msgs_nao_lidas(self):
         naolidas = self.chrome.find_elements_by_class_name("_1V5O7")
