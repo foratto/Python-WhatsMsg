@@ -193,22 +193,25 @@ class WhatsMsg:
                     msg = ''.join(msg)
 
                     if msg == "/ajuda":
-                        self.enviar_mensagem(nome, "Opa! :smiling" + Keys.ENTER + Keys.SPACE + "vou te ajudar! Minhas opções no momento são:"
-                                                   "\n/catálogo")
+                        self.enviar_mensagem(nome, "Opa! :smiling" + Keys.ENTER + Keys.SPACE + "vou te ajudar! Minhas opções no momento são: "
+                                            "\n */catálogo*")
                         time.sleep(3)
                         self.chrome.find_element_by_xpath('//*[@id="main"]/footer/div[1]/div[3]/button/span').click()
-                        self.chrome.find_element_by_xpath('//*[@id="pane-side"]/div[1]/div/div/div[11]/div/div/div[2]/div[1]/div[1]/span/span').click()
+                        self.chrome.find_element_by_xpath('//*[@id="pane-side"]/div[1]/div/div/div[11]/div/div/div/div[2]/div[2]/div[2]/span[1]/div/span').click()
                         time.sleep(5)
 
                     elif msg == "/catálogo" or msg == "/catalogo":
                         self.enviar_mensagem(nome, "Ok! Aqui está :)")
                         self.enviar_midia(nome, "whatsmsg.png")
-                        self.chrome.find_element_by_xpath('//*[@id="pane-side"]/div[1]/div/div/div[11]/div/div/div[2]/div[1]/div[1]/span/span').click()
+                        self.chrome.find_element_by_xpath('//*[@id="pane-side"]/div[1]/div/div/div[11]/div/div/div/div[2]/div[2]/div[2]/span[1]/div/span').click()
                         time.sleep(5)
 
                     else:
-                        self.enviar_mensagem(nome, "Olá eu sou o PyWhatsMsg_Bot, digite /ajuda para ver as opções.")
-                        self.chrome.find_element_by_xpath('//*[@id="pane-side"]/div[1]/div/div/div[11]/div/div/div[2]/div[1]/div[1]/span/span').click()
+                        self.enviar_mensagem(nome, "Olá eu sou o PyWhatsMsg_Bot! :robot" + Keys.ENTER + Keys.SPACE + " "
+                                                    "\n digite */ajuda* para ver as opções.")
+                        time.sleep(3)
+                        self.chrome.find_element_by_xpath('//*[@id="main"]/footer/div[1]/div[3]/button/span').click()
+                        self.chrome.find_element_by_xpath('//*[@id="pane-side"]/div[1]/div/div/div[11]/div/div/div/div[2]/div[2]/div[2]/span[1]/div/span').click()
                         time.sleep(5)
 
             except Exception as e:
