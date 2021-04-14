@@ -18,8 +18,24 @@
 - <h6><b>midia:</b> - Armazenar arquivos para envio (jpg, png, pdf...).</h6>
 <hr>
 <b><h5>:receipt: Recursos:</h5></b>
+<h6>14/04/2021 - Adicionado função BOT</h6>
 <h6>10/04/2021 - Enviar mensagens/midias diretas para telefones sem estar nos contatos</h6>
 <h6>08/04/2021 - Ver última mensagem não lida (Nome, Hora, Mensagem e quantidade de mensagens não lidas daquele contato.)</h6>
 <h6>06/04/2021 - Enviar mensagens e imagens</h6>
 <hr>  
 <h5>:white_check_mark: Contribuições:</h5>
+Seja um contribuidor :)
+<hr>
+
+## Como usar o BOT
+
+Atualmente não funciona em grupos.
+
+É necessário fixar seu próprio contato no topo (pin).
+```python 
+
+from WhatsMsg import WhatsMsg
+bot = WhatsMsg()
+bot.bot()
+```
+Para sair pressione <kbd>Ctrl + C</kbd>
