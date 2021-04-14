@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import os
 import time
@@ -159,6 +160,60 @@ class WhatsMsg:
             print("Não há novas mensagens!")
         except Exception as e:
             print("Erro ", e)
+
+    def bot(self):
+
+        global msg, nome
+        while True:
+            print("Aguardando mensagem...")
+            naolidas = self.chrome.find_elements_by_class_name("_1V5O7")
+            try:
+                for naolida in naolidas:
+                    lista = list(naolida.text)
+                    lista.insert(0, "Nome: ")
+                    if lista.__contains__("\n"):
+                        index = lista.index("\n")
+                        lista.pop(index)
+                        lista.insert(index,"\nHora: ")
+                    if lista.__contains__("\n"):
+                        index = lista.index("\n")
+                        lista.pop(index)
+                        lista.insert(index,"\nÚltima Mensagem: ")
+                    if lista.__contains__("\n"):
+                        index = lista.index("\n")
+                        lista.pop(index)
+                        lista.insert(index,"\nQtd Mensagem: ")
+                    nome = lista.index("Nome: ")
+                    hora = lista.index("\nHora: ")
+                    nome = lista[nome+1:hora]
+                    msg = lista.index("\nÚltima Mensagem: ")
+                    qtd = lista.index("\nQtd Mensagem: ")
+                    msg = lista[msg+1:qtd]
+                    nome = ''.join(nome)
+                    msg = ''.join(msg)
+
+                    if msg == "/ajuda":
+                        self.enviar_mensagem(nome, "Opa! :smiling" + Keys.ENTER + Keys.SPACE + "vou te ajudar! Minhas opções no momento são:"
+                                                   "\n/catálogo")
+                        time.sleep(3)
+                        self.chrome.find_element_by_xpath('//*[@id="main"]/footer/div[1]/div[3]/button/span').click()
+                        self.chrome.find_element_by_xpath('//*[@id="pane-side"]/div[1]/div/div/div[11]/div/div/div[2]/div[1]/div[1]/span/span').click()
+                        time.sleep(5)
+
+                    elif msg == "/catálogo" or msg == "/catalogo":
+                        self.enviar_mensagem(nome, "Ok! Aqui está :)")
+                        self.enviar_midia(nome, "whatsmsg.png")
+                        self.chrome.find_element_by_xpath('//*[@id="pane-side"]/div[1]/div/div/div[11]/div/div/div[2]/div[1]/div[1]/span/span').click()
+                        time.sleep(5)
+
+                    else:
+                        self.enviar_mensagem(nome, "Olá eu sou o PyWhatsMsg_Bot, digite /ajuda para ver as opções.")
+                        self.chrome.find_element_by_xpath('//*[@id="pane-side"]/div[1]/div/div/div[11]/div/div/div[2]/div[1]/div[1]/span/span').click()
+                        time.sleep(5)
+
+            except Exception as e:
+                print("Erro ", e)
+                continue
 
     def sair(self):
         try:
